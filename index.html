@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Our Love Story ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      color: rgba(255, 255, 255, 0.8);
+      animation: floatUp 8s linear infinite;
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0) scale(0.8);
+        opacity: 1;
+      }
+
+      to {
+        transform: translateY(-120vh) scale(1.4);
+        opacity: 0;
+      }
+    }
+
+    /* Sections */
+    section {
+      min-height: 100vh;
+      padding: 60px 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    h1,
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    /* Button */
+    .btn {
+      margin-top: 30px;
+      padding: 14px 30px;
+      background: white;
+      color: #ff4b7d;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      background: #ffe3ec;
+    }
+
+    /* Timeline */
+    .timeline {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .timeline div {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 20px;
+      margin: 15px;
+      border-radius: 15px;
+    }
+
+    /* Surprise popup */
+    #surprise {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    #surprise .box {
+      background: white;
+      color: #ff4b7d;
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 500px;
+      text-align: center;
+    }
+
+    #surprise h2 {
+      margin-bottom: 15px;
+    }
+
+    /* Footer */
+    footer {
+      padding: 30px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Hero -->
+  <section>
+    <h1>❤️ Our Love Story ❤️</h1>
+    <p>
+      Seven months ago, destiny smiled at us.
+      Today I celebrate not time… but you <b>Vanshika My Baby.</b>
+    </p>
+    <button class="btn" onclick="scrollToStory()">Begin Our Journey</button>
+  </section>
+
+  <!-- Story -->
+  <section id="story">
+    <h2>📖 The Day We Met</h2>
+    <p>
+      That day wasn’t just a date on the calendar.
+      It was the beginning of us. <br/><b><i>08/06/2025</i></b>
+    </p>
+  </section>
+
+  <!-- Timeline -->
+  <section>
+    <h2>💞 Our 7-Month Journey</h2>
+    <div class="timeline">
+      <div>✨ Month 1 – The beginning of something magical</div>
+      <div>💬 Month 2 – Conversations I never wanted to end.</div>
+      <div>🌸 Month 3 – Love grew deeper, stronger, warmer.</div>
+      <div>💖 Month 4 – Love became deeper</div>
+      <div>🌍 Month 5 – You became my safe place.</div>
+      <div>🔥 Month 6 – Stronger hearts, deeper trust.</div>
+      <div>❤️ Month 7 – Still falling for you, every single day.</div>
+    </div>
+  </section>
+
+  <!-- Message -->
+  <section>
+    <h2>💌 A Message For You</h2>
+    <p>
+      Loving you is my favorite thing.
+      Thank you for every laugh, every hug, every moment.
+      I promise to keep choosing you — today and forever.
+    </p>
+    <button class="btn" onclick="openSurprise()">Tap for a Surprise 🎁</button>
+  </section>
+
+  <!-- Surprise -->
+  <div id="surprise">
+    <div class="box">
+      <h2>💍 My Promise</h2>
+      <p>
+        I don’t need a special day to love you —
+        but today, I want you to know:
+        <i>You are my heart, my peace, my forever.</i>
+      </p>
+      <button class="btn" onclick="closeSurprise()">Close ❤️</button>
+    </div>
+  </div>
+
+  <script>
+    // Scroll
+    function scrollToStory() {
+      document.getElementById('story').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Surprise popup
+    function openSurprise() {
+      document.getElementById('surprise').style.display = 'flex';
+    }
+    function closeSurprise() {
+      document.getElementById('surprise').style.display = 'none';
+    }
+
+    // Floating hearts
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.innerHTML = '❤️';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = Math.random() * 20 + 15 + 'px';
+      heart.style.animationDuration = Math.random() * 3 + 5 + 's';
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 8000);
+    }
+    setInterval(createHeart, 400);
+  </script>
+
+</body>
+
+</html>
